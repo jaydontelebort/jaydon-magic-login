@@ -4,10 +4,10 @@
 	let email;
 
 	async function loginUser() {
-		const {user, session, error } = await supabase.auth.signIn({
+		const { error } = await supabase.auth.signIn({
 			email
 		});
-		console.log(user, session, error);
+
 		if (error) alert(error.message);
 	}
 </script>
