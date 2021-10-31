@@ -7,6 +7,8 @@
 	}
 </script>
 
-<h1>Welcome!</h1>
+<div class="text-center">
+	<h1 class="bg-warning p-5">Welcome!</h1>
 
-<button on:click={signOut}>Logout</button>
+	<button on:click={signOut}>Sign out</button>
+</div>
