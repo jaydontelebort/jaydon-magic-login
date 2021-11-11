@@ -6,7 +6,6 @@
 	// Select word
 	async function getSecretWord() {
 		const { data, error } = await supabase.from('secret').select();
-		console.log(data);
 		if (error) alert(error.message);
 
 		return data;
@@ -16,8 +15,10 @@
 	async function saveSecretWord() {
 		const { error } = await supabase
 			.from('secret')
-			.upsert({ user_id: supabase.auth.user().id, word: word },{ onConflict: "user_id" });
+			.upsert({ user_id: supabase.auth.user().id, word: word }, { onConflict: 'user_id' });
 		if (error) alert(error.message);
+
+		location.reload();
 	}
 
 	// Sign Out
@@ -33,9 +34,8 @@
 	{#await getSecretWord()}
 		<p>Fetching data...</p>
 	{:then data}
-		{data}
 		{#each data as secret}
-			<li>{secret.word}</li>
+			<p class="text-success">Your secret word: {secret.word}</p>
 		{/each}
 	{:catch error}
 		<p>Something went wrong while fetching the data:</p>
