@@ -18,7 +18,7 @@
 			.upsert({ user_id: supabase.auth.user().id, word: word }, { onConflict: 'user_id' });
 		if (error) alert(error.message);
 
-		location.reload();
+		location.reload(); // Refresh the page.
 	}
 
 	// Sign Out
