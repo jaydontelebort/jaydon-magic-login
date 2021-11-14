@@ -35,14 +35,14 @@
 		<p>Fetching data...</p>
 	{:then data}
 		{#each data as secret}
-			<p class="text-success">Your secret word: {secret.word}</p>
+			<h3 class="text-success my-3">Your secret word: {secret.word}</h3>
 		{/each}
 	{:catch error}
 		<p>Something went wrong while fetching the data:</p>
 		<pre>{error}</pre>
 	{/await}
 
-	<div class="text-center my-5">
+	<div class="text-center mb-5">
 		<form on:submit|preventDefault={saveSecretWord}>
 			<label for="word">Your secret word:</label>
 			<input id="word" bind:value={word} type="text" />
